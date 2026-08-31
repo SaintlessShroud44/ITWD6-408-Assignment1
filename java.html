@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <!-- Makes the website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript Movies</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================================
+         NAVIGATION BAR
+         ====================================================== -->
+
+      <!-- =========================
+       NAVIGATION BAR
+       The same links are used on desktop and inside the mobile hamburger menu.
+  ========================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid">
+
+        <!-- Website logo/name links back to the Home page -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/global.png" alt="Global logo" class="me-2 navbar-logo">
+          ITWD6.408
+        </a>
+
+        <!-- Mobile hamburger button -->
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--
+          This is the ONE navigation menu used by both desktop and mobile.
+          Bootstrap collapses these links into the hamburger menu on small screens.
+        -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+
+          <ul class="navbar-nav justify-content-center mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="formpage.html">Forms</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="webapi.html">WebAPI</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="java.html">JavaScript</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="research.html">Research</a>
+          </li>
+          </ul>
+
+          <!-- Search icon -->
+          <div class="ms-auto d-flex align-items-center">
+            <a href="#" class="nav-link" aria-label="Search">
+              <i class="bi bi-search fs-5"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <!-- ======================================================
+         JAVASCRIPT DEMONSTRATIONS
+         ====================================================== -->
+
+    <main class="container-fluid my-4">
+
+        <div class="row">
+
+
+            <!-- ==================================================
+                 LEFT SIDE - DEMO BUTTONS
+                 ================================================== -->
+
+            <div class="col-12 col-md-2 mb-4">
+
+                <div class="d-grid gap-2">
+
+
+                    <button id="demoBtn1" class="btn demo-button active-demo" type="button" onclick="showDemo(1)">
+
+                        DEMO 1
+
+                    </button>
+
+
+                    <button id="demoBtn2" class="btn demo-button" type="button" onclick="showDemo(2)">
+
+                        DEMO 2
+
+                    </button>
+
+
+                    <button id="demoBtn3" class="btn demo-button" type="button" onclick="showDemo(3)">
+
+                        DEMO 3
+
+                    </button>
+
+
+                    <button id="demoBtn4" class="btn demo-button" type="button" onclick="showDemo(4)">
+
+                        DEMO 4
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 RIGHT SIDE - DEMO CONTENT
+                 ================================================== -->
+
+            <div class="col-12 col-md-10">
+
+
+
+                <!-- ==================================================
+                     DEMO 1
+                     MOVIE SEARCH
+                     ================================================== -->
+
+                <section id="demo1" class="demo-section">
+
+
+                    <h2>DEMO 1</h2>
+
+
+                    <h4>Purpose</h4>
+
+
+                    <p>
+                        This demonstration uses JavaScript to search
+                        and filter a collection of movies by title.
+                    </p>
+
+
+                    <h3>Movie Search</h3>
+
+
+                    <div class="row mb-4">
+
+                        <div class="col-12 col-lg-6">
+
+
+                            <label for="searchInput" class="form-label">
+
+                                Search Movie:
+
+                            </label>
+
+
+                            <div class="input-group">
+
+
+                                <input type="text" id="searchInput" class="form-control"
+                                    placeholder="Enter movie title">
+
+
+                                <button class="btn btn-primary" type="button" onclick="displayFilteredMovies()">
+
+                                    <i class="bi bi-search"></i>
+
+                                    Search
+
+                                </button>
+
+
+                                <button class="btn btn-secondary" type="button" onclick="resetMovieSearch()">
+
+                                    Reset
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Movie cards are inserted here by JavaScript -->
+                    <div class="row" id="movie-list">
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ==================================================
+                     DEMO 2
+                     MOVIE WATCH LIST
+                     ================================================== -->
+
+                <section id="demo2" class="demo-section d-none">
+
+
+                    <h2>DEMO 2</h2>
+
+
+                    <h4>Purpose</h4>
+
+
+                    <p>
+                        This demonstration uses a dropdown menu to
+                        select a movie and add the movie to a watch list.
+                    </p>
+
+
+                    <h3>Movie Watch List</h3>
+
+
+                    <div class="row">
+
+                        <div class="col-12 col-lg-6">
+
+
+                            <label for="movieSelect" class="form-label">
+
+                                Select Movie:
+
+                            </label>
+
+
+                            <select id="movieSelect" class="form-select mb-3">
+
+                                <!-- Options created using JavaScript -->
+
+                            </select>
+
+
+                            <button class="btn btn-success mb-4" type="button" onclick="addMovieToWatchList()">
+
+                                <i class="bi bi-plus-circle"></i>
+
+                                Add Movie
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <h4>My Watch List</h4>
+
+
+                    <p id="emptyWatchListMessage">
+
+                        Your watch list is currently empty.
+
+                    </p>
+
+
+                    <ul id="watchList" class="list-group mb-3">
+
+                    </ul>
+
+
+                    <button class="btn btn-danger" type="button" onclick="clearWatchList()">
+
+                        Clear Watch List
+
+                    </button>
+
+
+                </section>
+
+
+
+                <!-- ==================================================
+                     DEMO 3
+                     CUSTOMIZE WEBPAGE
+                     ================================================== -->
+
+                <section id="demo3" class="demo-section d-none">
+
+
+                    <div id="page_content">
+
+
+                        <h2>DEMO 3</h2>
+
+
+                        <h4>Purpose</h4>
+
+
+                        <p>
+                            This demonstration allows the user to
+                            customize the webpage by changing the text
+                            size and background colour. The preferences
+                            are saved using Local Storage.
+                        </p>
+
+
+                        <h3>Customize the Webpage</h3>
+
+
+
+                        <!-- TEXT SIZE -->
+
+                        <div class="mb-3">
+
+
+                            <label for="text-size" class="form-label">
+
+                                Select Text Size:
+
+                            </label>
+
+
+                            <select id="text-size" class="form-select demo-select" onchange="customizeText()">
+
+
+                                <option value="">
+                                    Select Size
+                                </option>
+
+
+                                <option value="35px">
+                                    VERY BIG
+                                </option>
+
+
+                                <option value="25px">
+                                    BIG
+                                </option>
+
+
+                                <option value="16px">
+                                    NORMAL
+                                </option>
+
+
+                            </select>
+
+
+                        </div>
+
+
+
+                        <!-- BACKGROUND COLOUR -->
+
+                        <div class="mb-4">
+
+
+                            <label for="colorOption" class="form-label">
+
+                                Select Colour:
+
+                            </label>
+
+
+                            <select id="colorOption" class="form-select demo-select" onchange="changeColor()">
+
+
+                                <option value="">
+                                    Select Colour
+                                </option>
+
+
+                                <option value="red">
+                                    RED
+                                </option>
+
+
+                                <option value="green">
+                                    GREEN
+                                </option>
+
+
+                                <option value="yellow">
+                                    YELLOW
+                                </option>
+
+
+                                <option value="ivory">
+                                    IVORY
+                                </option>
+
+
+                                <option value="pink">
+                                    PINK
+                                </option>
+
+
+                                <option value="purple">
+                                    PURPLE
+                                </option>
+
+
+                            </select>
+
+
+                        </div>
+
+
+
+                        <!-- RESET CUSTOMISATION -->
+
+                        <button class="btn btn-secondary mb-4" type="button" onclick="resetCustomisation()">
+
+                            Reset Customisation
+
+                        </button>
+
+
+
+                        <hr>
+
+
+
+                        <!-- MOVIE INFORMATION -->
+
+                        <h2>
+                            Star Wars: The Clone Wars
+                        </h2>
+
+
+                        <img src="images/star%20wars%20clone%20wars.webp" alt="Star Wars The Clone Wars"
+                            class="demo-movie-image">
+
+
+                        <p id="abstract">
+
+                            One of the best animated Star Wars films
+                            to date.
+
+                            <br><br>
+
+                            "Do or do not, there is no try."
+
+                            <br><br>
+
+                            The Clone Wars is a great addition to the
+                            Star Wars saga, and it is a must-watch for
+                            any fan of the franchise. The animation is
+                            excellent, the story is engaging, and the
+                            characters are well-developed.
+
+                        </p>
+
+
+
+                        <!-- Hidden extra text -->
+
+                        <p id="detailed" style="display: none;">
+
+                            Since 2008, nothing has yet to beat the
+                            animated Star Wars: The Clone Wars film.
+
+                            Since then, newer animated series have been
+                            released which look just as good, or even
+                            better, than the 2008 animated movie.
+
+                        </p>
+
+
+
+                        <!-- MORE / LESS -->
+
+                        <button id="expandBtn" class="btn btn-primary" type="button" onclick="expandText()">
+
+                            MORE
+
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ==================================================
+                     DEMO 4
+                     MOVIE SHOPPING CART
+                     ================================================== -->
+
+                <section id="demo4" class="demo-section d-none">
+
+
+                    <h2>DEMO 4</h2>
+
+
+                    <h4>Purpose</h4>
+
+
+                    <p>
+                        This demonstration uses JavaScript to create
+                        a movie shopping cart. Movies can be added or
+                        removed and JavaScript calculates the total cost.
+                    </p>
+
+
+                    <h3>Movie Shopping Cart</h3>
+
+
+
+                    <!-- Movie products inserted using JavaScript -->
+
+                    <div class="row" id="shop-movie-list">
+
+                    </div>
+
+
+
+                    <hr class="my-4">
+
+
+
+                    <!-- SHOPPING CART -->
+
+                    <div class="shopping-cart">
+
+
+                        <h3>
+
+                            <i class="bi bi-cart3"></i>
+
+                            Shopping Cart
+
+                        </h3>
+
+
+                        <div id="cartItems">
+
+                            <p>
+                                Your cart is empty.
+                            </p>
+
+                        </div>
+
+
+                        <hr>
+
+
+                        <h4>
+
+                            Total:
+
+                            $<span id="cartTotal">
+                                0.00
+                            </span>
+
+                        </h4>
+
+
+                        <button class="btn btn-danger mt-2" type="button" onclick="clearCart()">
+
+                            <i class="bi bi-trash"></i>
+
+                            Clear Cart
+
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ======================================================
+         FOOTER
+         ====================================================== -->
+
+    <footer class="footer-bg py-2">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+
+                <!-- SOCIAL MEDIA ICONS -->
+
+                <div class="col-12 col-md-4
+                    order-1
+                    text-center
+                    text-md-start
+                    mb-3
+                    mb-md-0">
+
+
+                    <a href="#" aria-label="LinkedIn">
+
+                        <img src="images/linkedin.png" class="rounded social-icon" alt="LinkedIn logo">
+
+                    </a>
+
+
+                    <a href="#" aria-label="YouTube">
+
+                        <img src="images/youtube.png" class="rounded social-icon" alt="YouTube logo">
+
+                    </a>
+
+
+                    <a href="#" aria-label="Twitter">
+
+                        <img src="images/twitter.png" class="rounded social-icon" alt="Twitter logo">
+
+                    </a>
+
+
+                    <a href="#" aria-label="Facebook">
+
+                        <img src="images/facebook.png" class="rounded social-icon" alt="Facebook logo">
+
+                    </a>
+
+
+                    <a href="#" aria-label="Instagram">
+
+                        <img src="images/instagram.png" class="rounded social-icon" alt="Instagram logo">
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- COPYRIGHT -->
+
+                <div class="col-6 col-md-4
+                    order-2
+                    text-end">
+
+                    <strong>
+                        &copy; Shawn (EIT)
+                    </strong>
+
+                </div>
+
+
+
+                <!-- PRIVACY POLICY -->
+
+                <div class="col-6 col-md-4
+                    order-3
+                    text-start
+                    text-md-end">
+
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ======================================================
+         JAVASCRIPT
+         ====================================================== -->
+
+    <!-- Your JavaScript -->
+    <script src="movies.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

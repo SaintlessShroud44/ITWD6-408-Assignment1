@@ -1,0 +1,1277 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <!-- Makes the website resize correctly on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Assignment 1</title>
+
+
+  <!-- =====================================================
+       BOOTSTRAP CSS
+  ====================================================== -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+  <!-- =====================================================
+       BOOTSTRAP ICONS
+  ====================================================== -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+  <!-- =====================================================
+       CUSTOM CSS
+  ====================================================== -->
+
+  <link href="css/custom.css" rel="stylesheet">
+
+
+  <!-- =====================================================
+       GOOGLE FONT
+  ====================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVIGATION BAR
+  ====================================================== -->
+
+    <!-- =========================
+       NAVIGATION BAR
+       The same links are used on desktop and inside the mobile hamburger menu.
+  ========================== -->
+  <header>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid">
+
+        <!-- Website logo/name links back to the Home page -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/global.png" alt="Global logo" class="me-2 navbar-logo">
+          ITWD6.408
+        </a>
+
+        <!-- Mobile hamburger button -->
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--
+          This is the ONE navigation menu used by both desktop and mobile.
+          Bootstrap collapses these links into the hamburger menu on small screens.
+        -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+
+          <ul class="navbar-nav justify-content-center mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="formpage.html">Forms</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="webapi.html">WebAPI</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="java.html">JavaScript</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="research.html">Research</a>
+          </li>
+          </ul>
+
+          <!-- Search icon -->
+          <div class="ms-auto d-flex align-items-center">
+            <a href="#" class="nav-link" aria-label="Search">
+              <i class="bi bi-search fs-5"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <!-- =====================================================
+       FORMS SECTION
+  ====================================================== -->
+
+  <section id="itwd6408-api" class="container-fluid py-4">
+
+
+    <div class="row">
+
+
+      <!-- =================================================
+           LEFT FORM NAVIGATION
+      ================================================== -->
+
+      <div id="form-nav" class="col-12 col-md-4 col-lg-3 mb-3">
+
+
+        <div class="d-grid gap-2">
+
+
+          <!-- HTML FORM BUTTON -->
+
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#htmlform"
+            aria-expanded="false" aria-controls="htmlform">
+
+            HTML Form
+
+          </button>
+
+
+          <!-- GOOGLE FORM BUTTON -->
+
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#googleform"
+            aria-expanded="false" aria-controls="googleform">
+
+            Google Form
+
+          </button>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           RIGHT FORM CONTENT
+      ================================================== -->
+
+      <div id="form-content" class="col-12 col-md-8 col-lg-9">
+
+
+
+        <!-- =================================================
+             HTML FORM
+        ================================================== -->
+
+        <div class="collapse multi-collapse" id="htmlform">
+
+
+          <div class="form-box">
+
+
+            <h1>HTML FORM</h1>
+
+
+            <form id="mobile-techno-form" name="mobile-techno-form">
+
+
+              <!-- =================================================
+                   FIRST NAME
+              ================================================== -->
+
+              <div class="row mb-2">
+
+
+                <label for="fname" class="col-sm-3 col-form-label">
+
+                  First Name:
+
+                </label>
+
+
+                <div class="col-sm-9">
+
+                  <input type="text" class="form-control" id="fname" name="fname">
+
+                </div>
+
+
+              </div>
+
+
+
+              <!-- =================================================
+                   LAST NAME
+              ================================================== -->
+
+              <div class="row mb-3">
+
+
+                <label for="lname" class="col-sm-3 col-form-label">
+
+                  Last Name:
+
+                </label>
+
+
+                <div class="col-sm-9">
+
+                  <input type="text" class="form-control" id="lname" name="lname">
+
+                </div>
+
+
+              </div>
+
+
+
+              <!-- =================================================
+                   ADDRESS
+              ================================================== -->
+
+              <div class="row">
+
+                <div class="col-sm-3">
+
+                  <strong>Address</strong>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- ADDRESS LINE 1 -->
+
+              <div class="row mb-2">
+
+
+                <label for="line1" class="col-sm-3 col-form-label">
+
+                  Line 1:
+
+                </label>
+
+
+                <div class="col-sm-9">
+
+                  <input type="text" class="form-control" id="line1" name="line1">
+
+                </div>
+
+
+              </div>
+
+
+
+              <!-- ADDRESS LINE 2 -->
+
+              <div class="row mb-2">
+
+
+                <label for="line2" class="col-sm-3 col-form-label">
+
+                  Line 2:
+
+                </label>
+
+
+                <div class="col-sm-9">
+
+                  <input type="text" class="form-control" id="line2" name="line2">
+
+                </div>
+
+
+              </div>
+
+
+
+              <!-- TOWN / CITY -->
+
+              <div class="row mb-3">
+
+
+                <label for="towncity" class="col-sm-3 col-form-label">
+
+                  Town/City:
+
+                </label>
+
+
+                <div class="col-sm-9">
+
+                  <input type="text" class="form-control" id="towncity" name="towncity">
+
+                </div>
+
+
+              </div>
+
+
+
+              <!-- =================================================
+                   GENDER
+              ================================================== -->
+
+              <fieldset class="row mb-2">
+
+
+                <legend class="col-form-label col-sm-3 pt-0">
+
+                  Gender:
+
+                </legend>
+
+
+                <div class="col-sm-9 d-flex flex-wrap gap-3">
+
+
+                  <!-- MALE -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="radio" name="gridRadios" id="male" value="Male">
+
+                    <label class="form-check-label" for="male">
+
+                      Male
+
+                    </label>
+
+                  </div>
+
+
+                  <!-- FEMALE -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="radio" name="gridRadios" id="female" value="Female">
+
+                    <label class="form-check-label" for="female">
+
+                      Female
+
+                    </label>
+
+                  </div>
+
+
+                  <!-- OTHER -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="radio" name="gridRadios" id="genderOther" value="Other">
+
+                    <label class="form-check-label" for="genderOther">
+
+                      Other
+
+                    </label>
+
+                  </div>
+
+
+                </div>
+
+              </fieldset>
+
+
+
+              <!-- =================================================
+                   MOBILE PHONE TYPE
+              ================================================== -->
+
+              <div class="row mb-2">
+
+
+                <label class="col-sm-3 col-form-label">
+
+                  Mobile Phone Type:
+
+                </label>
+
+
+                <div class="col-sm-9 d-flex flex-wrap gap-3">
+
+
+                  <!-- WINDOWS -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="checkbox" id="windows" name="mobileType" value="Windows">
+
+                    <label class="form-check-label" for="windows">
+
+                      Windows
+
+                    </label>
+
+                  </div>
+
+
+                  <!-- APPLE -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="checkbox" id="apple" name="mobileType" value="Apple">
+
+                    <label class="form-check-label" for="apple">
+
+                      Apple
+
+                    </label>
+
+                  </div>
+
+
+                  <!-- ANDROID -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="checkbox" id="android" name="mobileType" value="Android">
+
+                    <label class="form-check-label" for="android">
+
+                      Android
+
+                    </label>
+
+                  </div>
+
+
+                  <!-- OTHER -->
+
+                  <div class="form-check">
+
+                    <input class="form-check-input" type="checkbox" id="phoneOther" name="mobileType" value="Other">
+
+                    <label class="form-check-label" for="phoneOther">
+
+                      Other
+
+                    </label>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+
+              <!-- =================================================
+                   MOBILE PROVIDER
+              ================================================== -->
+
+              <div class="row mb-2">
+
+
+                <label for="mobileProvider" class="col-sm-3 col-form-label">
+
+                  Mobile Provider:
+
+                </label>
+
+
+                <div class="col-sm-4">
+
+
+                  <select class="form-select" id="mobileProvider" name="mobileProvider">
+
+
+                    <option value="" selected>
+
+                      Select Provider
+
+                    </option>
+
+
+                    <option value="One NZ">
+
+                      One NZ
+
+                    </option>
+
+
+                    <option value="Spark">
+
+                      Spark
+
+                    </option>
+
+
+                    <option value="2degrees">
+
+                      2degrees
+
+                    </option>
+
+
+                    <option value="Other">
+
+                      Other
+
+                    </option>
+
+
+                  </select>
+
+
+                </div>
+
+              </div>
+
+
+
+              <!-- =================================================
+                   STUDY USE
+              ================================================== -->
+
+              <div class="row mb-3">
+
+
+                <label for="studyuse" class="col-sm-3 col-form-label">
+
+                  Do you use your phone
+                  for study? Please explain:
+
+                </label>
+
+
+                <div class="col-sm-9">
+
+
+                  <textarea class="form-control" id="studyuse" name="studyuse" rows="5"></textarea>
+
+
+                </div>
+
+
+              </div>
+
+
+
+              <!-- =================================================
+                   BUTTONS
+              ================================================== -->
+
+              <div class="row">
+
+
+                <div class="col-sm-9 offset-sm-3">
+
+
+                  <button type="reset" class="btn btn-secondary me-2">
+
+                    Reset
+
+                  </button>
+
+
+                  <button type="submit" class="btn btn-primary">
+
+                    Submit
+
+                  </button>
+
+
+                </div>
+
+
+              </div>
+
+
+            </form>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             GOOGLE FORM
+        ================================================== -->
+
+        <div class="collapse multi-collapse" id="googleform">
+
+
+          <div class="form-box">
+
+
+            <h1>GOOGLE FORM</h1>
+
+
+            <!-- =================================================
+                 GOOGLE FORM EMBED
+            ================================================== -->
+
+            <div class="google-form-container">
+
+
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeDRGTel6xD3JpuKaf_nGZ9VbbFdKALwUOYWNI0YHv08CHVhg/viewform?embedded=true"
+                width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
+
+                Loading…
+
+              </iframe>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer-bg py-2">
+
+
+    <div class="container">
+
+
+      <div class="row align-items-center">
+
+
+        <!-- SOCIAL MEDIA -->
+
+        <div class="col-12 col-md-4 order-1 text-center text-md-start mb-3 mb-md-0">
+
+
+          <a href="#" aria-label="LinkedIn">
+
+            <img src="images/linkedin.png" class="rounded social-icon" alt="LinkedIn logo">
+
+          </a>
+
+
+          <a href="#" aria-label="YouTube">
+
+            <img src="images/youtube.png" class="rounded social-icon" alt="YouTube logo">
+
+          </a>
+
+
+          <a href="#" aria-label="Twitter">
+
+            <img src="images/twitter.png" class="rounded social-icon" alt="Twitter logo">
+
+          </a>
+
+
+          <a href="#" aria-label="Facebook">
+
+            <img src="images/facebook.png" class="rounded social-icon" alt="Facebook logo">
+
+          </a>
+
+
+          <a href="#" aria-label="Instagram">
+
+            <img src="images/instagram.png" class="rounded social-icon" alt="Instagram logo">
+
+          </a>
+
+
+        </div>
+
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="col-6 col-md-4 order-2 text-end">
+
+          <strong>
+
+            &copy; Shawn (EIT)
+
+          </strong>
+
+        </div>
+
+
+
+        <!-- PRIVACY POLICY -->
+
+        <div class="col-6 col-md-4 order-3 text-start text-md-end">
+
+          <a href="#">
+
+            Privacy Policy
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       SUPABASE JAVASCRIPT
+  ====================================================== -->
+
+  <script type="module">
+
+
+    //--------------------------------------------------------
+    // Supabase client setup
+    //--------------------------------------------------------
+
+    import { createClient }
+      from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+
+    //--------------------------------------------------------
+    // Supabase project URL
+    //--------------------------------------------------------
+
+    const supabaseUrl =
+      'https://utboewzqywmyajznylwj.supabase.co';
+
+
+    //--------------------------------------------------------
+    // Supabase publishable key
+    //--------------------------------------------------------
+
+    const supabaseKey =
+      'sb_publishable_4Sv6IprZ8zq4SF0cH0AzCw_ewWZRl2P';
+
+
+    //--------------------------------------------------------
+    // Create Supabase client
+    //--------------------------------------------------------
+
+    const supabase =
+      createClient(
+        supabaseUrl,
+        supabaseKey
+      );
+
+
+
+    //--------------------------------------------------------
+    // Get the form
+    //--------------------------------------------------------
+
+    const form =
+      document.forms['mobile-techno-form'];
+
+
+
+    //--------------------------------------------------------
+    // Handle form submission
+    //--------------------------------------------------------
+
+    form.addEventListener(
+      'submit',
+      async (e) => {
+
+
+        //----------------------------------------------------
+        // Stop normal form submission
+        //----------------------------------------------------
+
+        e.preventDefault();
+
+
+
+        //----------------------------------------------------
+        // Get First Name
+        //----------------------------------------------------
+
+        const fname =
+          document
+            .getElementById('fname')
+            .value
+            .trim();
+
+
+
+        //----------------------------------------------------
+        // Get Last Name
+        //----------------------------------------------------
+
+        const lname =
+          document
+            .getElementById('lname')
+            .value
+            .trim();
+
+
+
+        //----------------------------------------------------
+        // Get Line 1
+        //----------------------------------------------------
+
+        const line1 =
+          document
+            .getElementById('line1')
+            .value
+            .trim();
+
+
+
+        //----------------------------------------------------
+        // Get Line 2
+        //----------------------------------------------------
+
+        const line2 =
+          document
+            .getElementById('line2')
+            .value
+            .trim();
+
+
+
+        //----------------------------------------------------
+        // Get Town / City
+        //----------------------------------------------------
+
+        const towncity =
+          document
+            .getElementById('towncity')
+            .value
+            .trim();
+
+
+
+        //----------------------------------------------------
+        // Get Gender
+        //----------------------------------------------------
+
+        const selectedGender =
+          document.querySelector(
+            'input[name="gridRadios"]:checked'
+          );
+
+
+        const gender =
+          selectedGender
+            ? selectedGender.value
+            : '';
+
+
+
+        //----------------------------------------------------
+        // Get Mobile Phone Type
+        //----------------------------------------------------
+
+        const selectedMobileTypes =
+          document.querySelectorAll(
+            'input[name="mobileType"]:checked'
+          );
+
+
+        const mobileType =
+          Array
+            .from(selectedMobileTypes)
+            .map(
+              checkbox => checkbox.value
+            )
+            .join(', ');
+
+
+
+        //----------------------------------------------------
+        // Get Mobile Provider
+        //----------------------------------------------------
+
+        const mobileProvider =
+          document
+            .getElementById('mobileProvider')
+            .value;
+
+
+
+        //----------------------------------------------------
+        // Get Study Use
+        //----------------------------------------------------
+
+        const studyuse =
+          document
+            .getElementById('studyuse')
+            .value
+            .trim();
+
+
+
+        //----------------------------------------------------
+        // Display values in console
+        //----------------------------------------------------
+
+        console.log(
+          'First Name:',
+          fname
+        );
+
+        console.log(
+          'Last Name:',
+          lname
+        );
+
+        console.log(
+          'Line 1:',
+          line1
+        );
+
+        console.log(
+          'Line 2:',
+          line2
+        );
+
+        console.log(
+          'Town/City:',
+          towncity
+        );
+
+        console.log(
+          'Gender:',
+          gender
+        );
+
+        console.log(
+          'Mobile Phone Type:',
+          mobileType
+        );
+
+        console.log(
+          'Mobile Provider:',
+          mobileProvider
+        );
+
+        console.log(
+          'Study Use:',
+          studyuse
+        );
+
+
+
+        //----------------------------------------------------
+        // Validate form
+        //----------------------------------------------------
+
+        if (
+          !fname ||
+          !lname ||
+          !line1 ||
+          !towncity ||
+          !gender ||
+          !mobileType ||
+          !mobileProvider ||
+          !studyuse
+        ) {
+
+
+          alert(
+            'Please fill in all required fields.'
+          );
+
+
+          return;
+
+        }
+
+
+
+        //----------------------------------------------------
+        // Supabase authentication
+        //----------------------------------------------------
+
+        const email =
+          'shawnpeipi@gmail.com';
+
+
+        const password =
+          'shawn1234';
+
+
+
+        //----------------------------------------------------
+        // Authenticate user
+        //----------------------------------------------------
+
+        const authentication =
+          await authenticateUser(
+            email,
+            password
+          );
+
+
+
+        //----------------------------------------------------
+        // Stop if authentication failed
+        //----------------------------------------------------
+
+        if (!authentication) {
+
+          return;
+
+        }
+
+
+
+        //----------------------------------------------------
+        // Insert data
+        //----------------------------------------------------
+
+        await insertData(
+          fname,
+          lname,
+          line1,
+          line2,
+          towncity,
+          gender,
+          mobileType,
+          mobileProvider,
+          studyuse
+        );
+
+
+      }
+    );
+
+
+
+    //--------------------------------------------------------
+    // Insert data into Supabase
+    //--------------------------------------------------------
+
+    async function insertData(
+      fname,
+      lname,
+      line1,
+      line2,
+      towncity,
+      gender,
+      mobileType,
+      mobileProvider,
+      studyuse
+    ) {
+
+
+      //------------------------------------------------------
+      // Insert into mobiletechnologyform table
+      //------------------------------------------------------
+
+      const { data, error } =
+        await supabase
+          .from('mobiletechnologyform')
+          .insert([
+
+            {
+
+              fname: fname,
+
+              lname: lname,
+
+              gender: gender,
+
+              line_1: line1,
+
+              line_2: line2,
+
+              'town/city': towncity,
+
+              Mobile_Phone_Type: mobileType,
+
+              Mobile_Provider: mobileProvider,
+
+              studyuse: studyuse
+
+            }
+
+          ]);
+
+
+
+      //------------------------------------------------------
+      // Check for errors
+      //------------------------------------------------------
+
+      if (error) {
+
+
+        console.error(
+          'Supabase error:',
+          error
+        );
+
+
+        alert(
+          'Supabase Error:\n\n' +
+          error.message
+        );
+
+
+        return null;
+
+      }
+
+
+
+      //------------------------------------------------------
+      // Successful submission
+      //------------------------------------------------------
+
+      alert(
+        'Data for ' +
+        fname +
+        ' ' +
+        lname +
+        ' inserted successfully!'
+      );
+
+
+      console.log(
+        'Inserted data:',
+        data
+      );
+
+
+      return data;
+
+
+    }
+
+
+
+    //--------------------------------------------------------
+    // Authenticate user with Supabase
+    //--------------------------------------------------------
+
+    async function authenticateUser(
+      email,
+      password
+    ) {
+
+
+      try {
+
+
+        //----------------------------------------------------
+        // Sign in
+        //----------------------------------------------------
+
+        const { data, error } =
+          await supabase.auth.signInWithPassword({
+
+            email: email,
+
+            password: password
+
+          });
+
+
+
+        //----------------------------------------------------
+        // Check authentication error
+        //----------------------------------------------------
+
+        if (error) {
+
+
+          console.error(
+            'Authentication error:',
+            error
+          );
+
+
+          alert(
+            'Authentication failed:\n\n' +
+            error.message
+          );
+
+
+          return null;
+
+        }
+
+
+
+        //----------------------------------------------------
+        // Return authenticated data
+        //----------------------------------------------------
+
+        return data;
+
+
+      }
+
+
+      catch (error) {
+
+
+        console.error(
+          'Unexpected authentication error:',
+          error
+        );
+
+
+        alert(
+          'Authentication error:\n\n' +
+          error.message
+        );
+
+
+        return null;
+
+      }
+
+
+    }
+
+
+  </script>
+
+
+
+  <!-- =====================================================
+       BOOTSTRAP JAVASCRIPT
+  ====================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+</html>
