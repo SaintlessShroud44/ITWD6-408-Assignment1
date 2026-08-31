@@ -94,7 +94,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../images/javascript-code.jpg");
+  background-image: url("images/javascript-code.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -426,170 +426,320 @@ body {
 }
 
 
-/* =====================================================
-           WEB API LAYOUT
-        ===================================================== */
+/* =========================================================
+   WEB API PAGE
+   ========================================================= */
 
-.webapi-container {
-  display: grid;
-
-  /* Buttons on left, content on right */
-  grid-template-columns: 160px 1fr;
-
-  gap: 20px;
-}
-
-
-/* =====================================================
-           JSON / REST BUTTONS
-        ===================================================== */
-
-.api-buttons {
+/*
+   Makes the Web API page use the available screen height.
+   The footer will sit underneath the main page content.
+*/
+.webapi-body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
 
+/* =========================================================
+   MAIN WEB API LAYOUT
+   ========================================================= */
+
+/*
+   Desktop layout:
+   - Left column = JSON RULES / REST API buttons
+   - Right column = JSON rules or REST API content
+*/
+.webapi-main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 18px;
+  flex: 1;
+  padding: 0 15px 15px 15px;
+}
+
+
+/* =========================================================
+   LEFT BUTTON MENU
+   ========================================================= */
+
+.webapi-menu {
+  width: 100%;
+}
+
+
+/* JSON RULES and REST API buttons */
 .api-btn {
-  padding: 12px;
-
-  border: 1px solid #555;
-
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin: 0 0 5px 0;
+  padding: 10px;
+  border: 1px solid #777777;
+  border-radius: 0;
   background-color: white;
-
+  color: black;
   font-weight: bold;
-
-  cursor: pointer;
-
   text-align: center;
+  cursor: pointer;
 }
 
 
-/* Active button */
+/* Selected button */
 .api-btn.active {
   background-color: orange;
+  color: black;
 }
 
 
-/* =====================================================
-           CONTENT SECTIONS
-        ===================================================== */
-
-.api-content {
-  display: none;
+/* Button hover effect */
+.api-btn:hover {
+  background-color: #ffc04d;
+  color: black;
 }
 
 
-/* Currently selected content */
-.api-content.active {
-  display: block;
+/* =========================================================
+   RIGHT CONTENT AREA
+   ========================================================= */
+
+.webapi-content {
+  width: 100%;
+  min-width: 0;
 }
 
 
-/* =====================================================
-           JSON RULES
-        ===================================================== */
+/* Main heading */
+.webapi-title {
+  margin-top: 5px;
+  margin-bottom: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: normal;
+}
 
-.json-rules {
+
+/* Text underneath the heading */
+.webapi-description {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   JSON RULES GRID
+   ========================================================= */
+
+/*
+   On a computer the assignment requires:
+   Rule 1 | Rule 2
+   Rule 3 | Rule 4
+   Rule 5 | Rule 6
+
+   The boxes are deliberately wide and rectangular.
+*/
+.json-rules-grid {
+  width: 100%;
   display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 10px;
-
-  margin-top: 15px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
 }
 
+
+/* =========================================================
+   INDIVIDUAL JSON RULE BOX
+   ========================================================= */
 
 .json-rule {
-  background-color: #f0f0f0;
-
-  border: 1px solid #999;
-
+  width: 100%;
+  min-width: 0;
+  min-height: 125px;
+  box-sizing: border-box;
   padding: 10px;
+  border: 1px solid #999999;
+  background-color: #f0f0f0;
 }
 
 
-.json-rule h4 {
+/* JSON rule heading */
+.json-rule h2 {
   margin-top: 0;
+  margin-bottom: 7px;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 
-.code-example {
+/* JSON rule explanation */
+.json-rule p {
+  margin-top: 0;
+  margin-bottom: 7px;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+
+/* JSON code example */
+.json-rule .code-example {
+  margin-top: 10px;
+  margin-bottom: 0;
   color: blue;
-
-  font-size: 13px;
-
   font-family: monospace;
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
 }
 
 
-/* =====================================================
-           REST API DATA
-        ===================================================== */
+/* =========================================================
+   REST API DATA
+   ========================================================= */
 
-#raw-data {
+/*
+   Submitted Supabase records use two wide rectangular
+   boxes per row on desktop.
+*/
+.record-grid {
+  width: 100%;
   display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 
+/* Individual submitted record */
 .record {
-  background-color: #f0f0f0;
-
-  border: 1px solid #999;
-
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   padding: 10px;
+  border: 1px solid #999999;
+  background-color: #f0f0f0;
 }
 
 
+/* Record information */
 .record p {
-  margin: 5px 0;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.25;
 }
 
 
-/* =====================================================
-           MOBILE RESPONSIVE DESIGN
-        ===================================================== */
+.record strong {
+  font-weight: bold;
+}
 
-@media (max-width: 768px) {
 
-  /* Put buttons above content */
-  .webapi-container {
+/* Area where Supabase data is inserted */
+#raw-data {
+  width: 100%;
+}
+
+
+/* =========================================================
+   TABLET RESPONSIVE DESIGN
+   ========================================================= */
+
+@media screen and (max-width: 991px) {
+
+  .webapi-main {
+    grid-template-columns: 145px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .json-rule {
+    min-height: 135px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /*
+     Move the menu above the content on mobile.
+  */
+  .webapi-main {
     display: block;
+    padding: 0 10px 15px 10px;
   }
 
 
-  /* Buttons next to each other */
-  .api-buttons {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    margin-bottom: 20px;
-
-    gap: 0;
+  /*
+     JSON RULES and REST API sit next to each other.
+  */
+  .webapi-menu {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
   }
 
 
-  /* One JSON rule per row */
-  .json-rules {
+  .api-btn {
+    width: 50%;
+    margin: 0;
+  }
+
+
+  /*
+     One JSON rule box per row on mobile.
+  */
+  .json-rules-grid {
     grid-template-columns: 1fr;
   }
 
 
-  /* One Supabase record per row */
-  #raw-data {
+  .json-rule {
+    min-height: auto;
+  }
+
+
+  /*
+     One REST API record per row on mobile.
+  */
+  .record-grid {
     grid-template-columns: 1fr;
+  }
+
+
+  .webapi-title {
+    font-size: 1.5rem;
   }
 
 }
+
+
+/* =========================================================
+   SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media screen and (max-width: 400px) {
+
+  .webapi-menu {
+    flex-direction: column;
+  }
+
+
+  .api-btn {
+    width: 100%;
+  }
+
+
+  .json-rule h2 {
+    font-size: 0.95rem;
+  }
+
+}
+
 
 /* =====================================================
            java page
