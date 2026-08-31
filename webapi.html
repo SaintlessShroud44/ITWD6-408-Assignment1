@@ -328,459 +328,200 @@
          JAVASCRIPT
     ===================================================== -->
 
-    <script type="module">
+    <script>
+
+    // =========================================================
+    // SUPABASE REST API SETTINGS
+    // =========================================================
+
+    const supabaseApiUrl =
+        "https://utboewzqywmyajznylwj.supabase.co";
+
+    const supabaseKey =
+        "sb_publishable_4Sv6IprZ8zq4SF0cH0AzCw_ewWZRl2P";
 
 
-        //--------------------------------------------------------
-        // SUPABASE INFORMATION
-        //--------------------------------------------------------
+    // =========================================================
+    // GET DATA FROM SUPABASE
+    // =========================================================
 
-        const supabaseApiUrl =
-            'https://utboewzqywmyajznylwj.supabase.co';
+    async function getData() {
 
+        // Supabase REST API address
+        const url =
+            `${supabaseApiUrl}/rest/v1/mobiletechnologyform?select=*`;
 
-        const supabaseKey =
-            'sb_publishable_4Sv6IprZ8zq4SF0cH0AzCw_ewWZRl2P';
+        try {
 
+            const response = await fetch(url, {
 
+                method: "GET",
 
-        //--------------------------------------------------------
-        // GET BUTTONS
-        //--------------------------------------------------------
+                headers: {
 
-        const jsonButton =
-            document.getElementById('jsonButton');
+                    // Public Supabase API key
+                    "apikey": supabaseKey,
 
-
-        const restButton =
-            document.getElementById('restButton');
-
-
-
-        //--------------------------------------------------------
-        // GET CONTENT SECTIONS
-        //--------------------------------------------------------
-
-        const jsonSection =
-            document.getElementById('jsonSection');
-
-
-        const restSection =
-            document.getElementById('restSection');
-
-
-
-        //--------------------------------------------------------
-        // CHECK IF DATA HAS ALREADY BEEN LOADED
-        //--------------------------------------------------------
-
-        let dataLoaded = false;
-
-
-
-        //--------------------------------------------------------
-        // JSON RULES BUTTON
-        //--------------------------------------------------------
-
-        jsonButton.addEventListener(
-            'click',
-            function () {
-
-
-                //----------------------------------------------
-                // Activate JSON button
-                //----------------------------------------------
-
-                jsonButton.classList.add('active');
-
-
-                //----------------------------------------------
-                // Deactivate REST button
-                //----------------------------------------------
-
-                restButton.classList.remove('active');
-
-
-                //----------------------------------------------
-                // Show JSON section
-                //----------------------------------------------
-
-                jsonSection.classList.add('active');
-
-
-                //----------------------------------------------
-                // Hide REST section
-                //----------------------------------------------
-
-                restSection.classList.remove('active');
-
-
-            }
-        );
-
-
-
-        //--------------------------------------------------------
-        // REST API BUTTON
-        //--------------------------------------------------------
-
-        restButton.addEventListener(
-            'click',
-            function () {
-
-
-                //----------------------------------------------
-                // Activate REST button
-                //----------------------------------------------
-
-                restButton.classList.add('active');
-
-
-                //----------------------------------------------
-                // Deactivate JSON button
-                //----------------------------------------------
-
-                jsonButton.classList.remove('active');
-
-
-                //----------------------------------------------
-                // Show REST section
-                //----------------------------------------------
-
-                restSection.classList.add('active');
-
-
-                //----------------------------------------------
-                // Hide JSON section
-                //----------------------------------------------
-
-                jsonSection.classList.remove('active');
-
-
-                //----------------------------------------------
-                // Fetch data only once
-                //----------------------------------------------
-
-                if (!dataLoaded) {
-
-                    fetchDataRaw();
-
-                    dataLoaded = true;
+                    "Accept": "application/json"
 
                 }
 
-
-            }
-        );
+            });
 
 
+            // Check whether Supabase returned an error
+            if (!response.ok) {
 
-        //--------------------------------------------------------
-        // FETCH DATA FROM SUPABASE
-        //--------------------------------------------------------
+                const errorText = await response.text();
 
-        async function fetchDataRaw() {
-
-
-            //----------------------------------------------
-            // REST API URL
-            //
-            // select=* means retrieve every column
-            //----------------------------------------------
-
-            const url =
-                `${supabaseApiUrl}/rest/v1/mobiletechnologyform?select=*`;
-
-
-            try {
-
-
-                //------------------------------------------
-                // GET request
-                //------------------------------------------
-
-                const response =
-                    await fetch(
-                        url,
-                        {
-
-                            method: 'GET',
-
-                            headers: {
-
-                                'apikey':
-                                    supabaseKey,
-
-                                'Authorization':
-                                    `Bearer ${supabaseKey}`,
-
-                                'Content-Type':
-                                    'application/json'
-
-                            }
-
-                        }
-                    );
-
-
-
-                //------------------------------------------
-                // Check for error
-                //------------------------------------------
-
-                if (!response.ok) {
-
-
-                    const errorText =
-                        await response.text();
-
-
-                    throw new Error(
-                        `HTTP Error ${response.status}: ${errorText}`
-                    );
-
-
-                }
-
-
-
-                //------------------------------------------
-                // Convert result to JSON
-                //------------------------------------------
-
-                const data =
-                    await response.json();
-
-
-                console.log(
-                    'Supabase Data:',
-                    data
+                throw new Error(
+                    `HTTP Error ${response.status}: ${errorText}`
                 );
 
-
-
-                //------------------------------------------
-                // Display records
-                //------------------------------------------
-
-                displayData(data);
-
-
             }
 
 
-            catch (error) {
+            // Convert returned JSON into JavaScript data
+            const data = await response.json();
+
+            console.log("Supabase Data:", data);
 
 
-                console.error(
-                    'Fetch Error:',
-                    error
-                );
+            // Display the information on the page
+            displayData(data);
+
+        }
+
+        catch (error) {
+
+            console.error("Fetch Error:", error);
 
 
-                const outputElement =
-                    document.getElementById(
-                        'raw-data'
-                    );
+            document.getElementById("raw-data").innerHTML = `
+
+                <div class="alert alert-danger">
+
+                    <strong>Error Fetching Data:</strong>
+
+                    <br>
+
+                    ${error.message}
+
+                </div>
+
+            `;
+
+        }
+
+    }
 
 
-                outputElement.innerHTML = `
 
-                    <div style="
-                        background-color: #ffdddd;
-                        border: 1px solid red;
-                        padding: 10px;
-                    ">
+    // =========================================================
+    // DISPLAY SUPABASE DATA
+    // =========================================================
 
-                        <strong>
-                            Error Fetching Data:
-                        </strong>
+    function displayData(data) {
 
-                        <br>
-
-                        ${error.message}
-
-                    </div>
-
-                `;
+        const output =
+            document.getElementById("raw-data");
 
 
-            }
+        // No records found
+        if (data.length === 0) {
+
+            output.innerHTML = `
+
+                <div class="alert alert-info">
+
+                    No submitted data was found.
+
+                </div>
+
+            `;
+
+            return;
 
         }
 
 
+        // Create responsive table
+        let html = `
 
-        //--------------------------------------------------------
-        // DISPLAY SUPABASE DATA
-        //--------------------------------------------------------
+            <div class="table-responsive">
 
-        function displayData(data) {
+                <table class="table table-bordered table-striped">
 
+                    <thead>
 
-            const outputElement =
-                document.getElementById(
-                    'raw-data'
-                );
+                        <tr>
 
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Town / City</th>
+                            <th>Phone Type</th>
+                            <th>Provider</th>
+                            <th>Study Use</th>
 
-            //----------------------------------------------
-            // Clear old content
-            //----------------------------------------------
+                        </tr>
 
-            outputElement.innerHTML = '';
+                    </thead>
 
+                    <tbody>
 
+        `;
 
-            //----------------------------------------------
-            // Check if no records exist
-            //----------------------------------------------
 
-            if (data.length === 0) {
+        // Create one table row for every Supabase record
+        data.forEach(function (item) {
 
+            html += `
 
-                outputElement.innerHTML =
-                    '<p>No submitted data found.</p>';
+                <tr>
 
+                    <td>${item.fname ?? ""}</td>
 
-                return;
+                    <td>${item.lname ?? ""}</td>
 
-            }
+                    <td>${item.gender ?? ""}</td>
 
+                    <td>${item["town/city"] ?? ""}</td>
 
+                    <td>${item.Mobile_Phone_Type ?? ""}</td>
 
-            //----------------------------------------------
-            // Loop through all submitted records
-            //----------------------------------------------
+                    <td>${item.Mobile_Provider ?? ""}</td>
 
-            data.forEach(
-                record => {
+                    <td>${item.studyuse ?? ""}</td>
 
+                </tr>
 
-                    //------------------------------------------
-                    // Create record box
-                    //------------------------------------------
+            `;
 
-                    const recordElement =
-                        document.createElement(
-                            'div'
-                        );
+        });
 
 
-                    recordElement.classList.add(
-                        'record'
-                    );
+        html += `
 
+                    </tbody>
 
+                </table>
 
-                    //------------------------------------------
-                    // Add information
-                    //------------------------------------------
+            </div>
 
-                    recordElement.innerHTML = `
+        `;
 
 
-                        <p>
-                            <strong>
-                                First Name:
-                            </strong>
+        output.innerHTML = html;
 
-                            ${record.fname ?? ''}
-                        </p>
+    }
 
 
-                        <p>
-                            <strong>
-                                Last Name:
-                            </strong>
 
-                            ${record.lname ?? ''}
-                        </p>
+    // Load Supabase data when the page opens
+    getData();
 
-
-                        <p>
-                            <strong>
-                                Gender:
-                            </strong>
-
-                            ${record.gender ?? ''}
-                        </p>
-
-
-                        <p>
-                            <strong>
-                                Address Line 1:
-                            </strong>
-
-                            ${record.line_1 ?? ''}
-                        </p>
-
-
-                        <p>
-                            <strong>
-                                Address Line 2:
-                            </strong>
-
-                            ${record.line_2 ?? ''}
-                        </p>
-
-
-                        <p>
-                            <strong>
-                                Town/City:
-                            </strong>
-
-                            ${record['town/city'] ?? ''}
-                        </p>
-
-
-                        <p>
-                            <strong>
-                                Mobile Phone Type:
-                            </strong>
-
-                            ${record.Mobile_Phone_Type ?? ''}
-                        </p>
-
-
-                        <p>
-                            <strong>
-                                Mobile Provider:
-                            </strong>
-
-                            ${record.Mobile_Provider ?? ''}
-                        </p>
-
-
-                        <p>
-                            <strong>
-                                Phone Use For Study:
-                            </strong>
-
-                            ${record.studyuse ?? ''}
-                        </p>
-
-
-                    `;
-
-
-
-                    //------------------------------------------
-                    // Add record to page
-                    //------------------------------------------
-
-                    outputElement.appendChild(
-                        recordElement
-                    );
-
-
-                }
-            );
-
-        }
-
-
-    </script>
+</script>
     <footer class="footer-bg py-2">
 
         <div class="container">
